@@ -3,4 +3,6 @@ class Comic < ActiveRecord::Base
 	
 	def self.search(search)
 	end
+
+	
 end

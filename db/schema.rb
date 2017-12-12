@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212001744) do
+ActiveRecord::Schema.define(version: 20171212210259) do
+
+  create_table "collections", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "collection_type"
+    t.string   "type_ids"
+    t.integer  "owner"
+  end
 
   create_table "comics", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -44,6 +52,7 @@ ActiveRecord::Schema.define(version: 20171212001744) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.string   "collections"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
